@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /private/
+
+# This only guides well-behaved crawlers.
+# It does not stop malicious scrapers.
