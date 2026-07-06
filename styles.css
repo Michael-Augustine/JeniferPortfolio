@@ -520,6 +520,81 @@ h3 {
   background: linear-gradient(135deg, var(--sky-light), var(--lavender-light));
 }
 
+.memory-hero {
+  padding: 1.8rem 2rem;
+}
+
+.memory-hero p {
+  max-width: 760px;
+}
+
+.memory-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.memory-count {
+  margin: 0;
+  color: var(--subtitle-tone);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.memory-helper {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.memory-empty {
+  padding: 1.6rem;
+  text-align: center;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: 10px;
+  gap: 1rem;
+}
+
+.memory-item {
+  display: block;
+  grid-row-end: span 28;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+}
+
+.memory-figure {
+  margin: 0;
+}
+
+.memory-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.memory-caption {
+  padding: 0.9rem 1rem 1rem;
+}
+
+.memory-caption p {
+  margin: 0;
+  color: var(--subtitle-tone);
+  font-size: 0.88rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
 .contact-row {
   display: grid;
   grid-template-columns: 130px minmax(0, 1fr);
@@ -699,6 +774,10 @@ h3 {
 
   .timeline-card::before {
     left: -1.22rem;
+  }
+
+  .memory-grid {
+    grid-template-columns: 1fr;
   }
 }
 
