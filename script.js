@@ -57,30 +57,11 @@ function setupMemoryGrid() {
 
   const countTarget = document.querySelector("[data-memory-count]");
   const emptyState = document.querySelector("[data-memory-empty]");
-  const rowUnit = 10;
-  const rowGap = 16;
+  const lightbox = document.querySelector("[data-memory-lightbox]");
+  const lightboxImage = document.querySelector("[data-memory-lightbox-image]");
+  const lightboxCaption = document.querySelector("[data-memory-lightbox-caption]");
+  const lightboxClose = document.querySelector("[data-memory-close]");
   const allowedExtensions = [".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"];
-
-  function resizeItem(item) {
-    const image = item.querySelector("img");
-
-    if (!image || !image.complete || !image.naturalWidth || !image.naturalHeight) {
-      return;
-    }
-
-    const caption = item.querySelector(".memory-caption");
-    const ratio = image.naturalHeight / image.naturalWidth;
-    const imageHeight = item.clientWidth * ratio;
-    const captionHeight = caption ? caption.offsetHeight : 0;
-    const totalHeight = imageHeight + captionHeight;
-    const span = Math.max(18, Math.ceil((totalHeight + rowGap) / rowUnit));
-
-    item.style.gridRowEnd = `span ${span}`;
-  }
-
-  function resizeAllItems() {
-    grid.querySelectorAll(".memory-item").forEach(resizeItem);
-  }
 
   function updateCount(total) {
     if (countTarget) {
@@ -95,10 +76,35 @@ function setupMemoryGrid() {
     }
   }
 
+  function openLightbox(src, labelText) {
+    if (!lightbox || !lightboxImage || !lightboxCaption) {
+      return;
+    }
+
+    lightboxImage.src = src;
+    lightboxImage.alt = labelText;
+    lightboxCaption.textContent = labelText;
+    lightbox.hidden = false;
+    document.body.classList.add("menu-open");
+  }
+
+  function closeLightbox() {
+    if (!lightbox || !lightboxImage || !lightboxCaption) {
+      return;
+    }
+
+    lightbox.hidden = true;
+    lightboxImage.src = "";
+    lightboxImage.alt = "";
+    lightboxCaption.textContent = "";
+    document.body.classList.remove("menu-open");
+  }
+
   function appendImageCard(src, labelText) {
     const item = document.createElement("article");
     item.className = "memory-item";
     item.setAttribute("data-reveal", "");
+    item.tabIndex = 0;
 
     const figure = document.createElement("figure");
     figure.className = "memory-figure";
@@ -121,8 +127,18 @@ function setupMemoryGrid() {
     item.appendChild(figure);
     grid.appendChild(item);
 
+    item.addEventListener("click", () => {
+      openLightbox(src, labelText);
+    });
+
+    item.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLightbox(src, labelText);
+      }
+    });
+
     image.addEventListener("load", () => {
-      resizeItem(item);
       item.classList.add("is-visible");
     });
 
@@ -136,7 +152,6 @@ function setupMemoryGrid() {
     });
 
     if (image.complete && image.naturalWidth) {
-      resizeItem(item);
       item.classList.add("is-visible");
     }
   }
@@ -192,8 +207,6 @@ function setupMemoryGrid() {
 
         appendImageCard(relativePath, labelText);
       });
-
-      resizeAllItems();
     } catch (error) {
       console.error("Unable to load gallery images from GitHub.", error);
       if (countTarget) {
@@ -205,7 +218,24 @@ function setupMemoryGrid() {
     }
   }
 
-  window.addEventListener("resize", resizeAllItems);
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
+  }
+
+  if (lightbox) {
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox && !lightbox.hidden) {
+      closeLightbox();
+    }
+  });
+
   loadGithubGallery();
 }
 
