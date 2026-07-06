@@ -156,6 +156,14 @@ li {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.9rem 0 1.1rem;
+  position: relative;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
 }
 
 .brand {
@@ -177,6 +185,9 @@ li {
   display: flex;
   align-items: center;
   gap: 1.45rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   color: var(--muted);
   font-size: 0.92rem;
   font-weight: 800;
@@ -186,10 +197,45 @@ li {
   transition: color 0.2s ease, opacity 0.2s ease;
 }
 
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54.39px;
+  min-width: 54.39px;
+  height: 47.78px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: linear-gradient(135deg, #4f8df7, #7c63f2);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(79, 141, 247, 0.22);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  flex: 0 0 54.39px;
+}
+
 .nav-links a:hover,
-.nav-links a:focus-visible {
+.nav-links a:focus-visible,
+.lang-toggle:hover,
+.lang-toggle:focus-visible {
   color: var(--subtitle-tone);
   opacity: 1;
+}
+
+.lang-toggle:hover,
+.lang-toggle:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(79, 141, 247, 0.28);
 }
 
 .menu-toggle {
@@ -756,8 +802,17 @@ h3 {
     position: relative;
   }
 
+  .topbar-actions {
+    margin-left: auto;
+    gap: 0.55rem;
+  }
+
   .menu-toggle {
     display: inline-flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 21;
   }
 
   .nav-links {
@@ -769,12 +824,21 @@ h3 {
     display: none;
     flex-direction: column;
     align-items: flex-start;
+    transform: none;
     gap: 1rem;
     padding: 1rem;
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     background: rgba(255, 255, 255, 0.98);
     box-shadow: var(--shadow);
+  }
+
+  .lang-toggle {
+    width: 54.39px;
+    min-width: 54.39px;
+    height: 47.78px;
+    padding: 0;
+    flex-basis: 54.39px;
   }
 
   .nav-links.is-open {
