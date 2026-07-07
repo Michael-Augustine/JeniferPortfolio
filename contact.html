@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Jenifer Antony Padyachi</title>
+  <title data-i18n-content="contact.meta_title">Contact | Jenifer Antony Padyachi</title>
   <meta
     name="description"
     content="Contact details for Jenifer Antony Padyachi."
+    data-i18n-content="contact.meta_description"
   >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,29 +17,34 @@
   >
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="contact">
   <div class="site-bg" aria-hidden="true"></div>
   <div class="page-shell">
     <header class="site-header compact-header">
       <div class="shell">
         <nav class="topbar">
           <a class="brand" href="index.html" aria-label="Jenifer Antony Padyachi home">JA</a>
-          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <div class="topbar-actions">
+            <div class="nav-links" id="nav-links">
+              <a href="index.html#summary" data-i18n="nav.summary">Summary</a>
+              <a href="index.html#experience" data-i18n="nav.experience">Experience</a>
+              <a href="index.html#education" data-i18n="nav.education">Education</a>
+              <a href="memories.html" data-i18n="nav.memories">Memories</a>
+              <a href="contact.html" data-i18n="nav.contact">Contact</a>
+            </div>
+            <button class="lang-toggle" type="button" aria-label="Switch language" data-lang-toggle>
+              中文
+            </button>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-i18n="common.menu">
             Menu
           </button>
-          <div class="nav-links" id="nav-links">
-            <a href="index.html#summary">Summary</a>
-            <a href="index.html#experience">Experience</a>
-            <a href="index.html#education">Education</a>
-            <a href="memories.html">Memories</a>
-            <a href="contact.html">Contact</a>
-          </div>
         </nav>
 
         <section class="simple-hero" data-reveal>
           <h1><a href="http://trjenifer.com/" target="_blank" rel="noreferrer">Jenifer Antony Padyachi</a></h1>
-          <p class="hero-identity">English Language Teaching Professional, Master's in Applied Foreign Languages</p>
-          <p class="hero-summary">
+          <p class="hero-identity" data-i18n="home.hero_identity">English Language Teaching Professional, Master's in Applied Foreign Languages</p>
+          <p class="hero-summary" data-i18n="contact.hero_summary">
             Contact details sourced directly from the current CV, with direct links for email and LinkedIn access.
           </p>
         </section>
@@ -49,23 +55,23 @@
       <section class="section">
         <div class="contact-card" data-reveal>
           <div class="contact-row">
-            <span>Email</span>
+            <span data-i18n="common.email_label">Email</span>
             <a href="mailto:jenifer.padyachi.tw@gmail.com">jenifer.padyachi.tw@gmail.com</a>
           </div>
           <div class="contact-row">
-            <span>Location</span>
-            <p>Taipei, Taiwan</p>
+            <span data-i18n="common.location_label">Location</span>
+            <p data-i18n="common.location_value">Taipei, Taiwan</p>
           </div>
           <div class="contact-row">
-            <span>LinkedIn</span>
+            <span data-i18n="common.linkedin_label">LinkedIn</span>
             <a href="https://www.linkedin.com/in/jeniferantony" target="_blank" rel="noreferrer">www.linkedin.com/in/jeniferantony</a>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      Made with ❤️ in Taipei · Jenifer Antony Padyachi © 2026
+    <footer class="site-footer" data-i18n="common.footer">
+      Made with love ❤️ in Taipei · Jenifer Antony Padyachi © 2026
     </footer>
   </div>
 

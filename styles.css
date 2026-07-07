@@ -570,6 +570,19 @@ h3 {
   padding: 1.8rem 2rem;
 }
 
+.memory-hero h1 {
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  line-height: 1.08;
+}
+
+.memory-hero .hero-identity {
+  margin-top: 0.8rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
 .memory-hero p {
   max-width: 760px;
 }

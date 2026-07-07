@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Memories | Jenifer Antony Padyachi</title>
+  <title data-i18n-content="memories.meta_title">Student Memories | Jenifer Antony Padyachi</title>
   <meta
     name="description"
     content="Student memories gallery for Jenifer Antony Padyachi."
+    data-i18n-content="memories.meta_description"
   >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,31 +17,33 @@
   >
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="memories">
   <div class="site-bg" aria-hidden="true"></div>
   <div class="page-shell">
     <header class="site-header compact-header">
       <div class="shell">
         <nav class="topbar">
           <a class="brand" href="index.html" aria-label="Jenifer Antony Padyachi home">JA</a>
-          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <div class="topbar-actions">
+            <div class="nav-links" id="nav-links">
+              <a href="index.html#summary" data-i18n="nav.summary">Summary</a>
+              <a href="index.html#experience" data-i18n="nav.experience">Experience</a>
+              <a href="index.html#education" data-i18n="nav.education">Education</a>
+              <a href="memories.html" data-i18n="nav.memories">Memories</a>
+              <a href="contact.html" data-i18n="nav.contact">Contact</a>
+            </div>
+            <button class="lang-toggle" type="button" aria-label="Switch language" data-lang-toggle>
+              中文
+            </button>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-i18n="common.menu">
             Menu
           </button>
-          <div class="nav-links" id="nav-links">
-            <a href="index.html#summary">Summary</a>
-            <a href="index.html#experience">Experience</a>
-            <a href="index.html#education">Education</a>
-            <a href="memories.html">Memories</a>
-            <a href="contact.html">Contact</a>
-          </div>
         </nav>
 
         <section class="simple-hero memory-hero" data-reveal>
-          <h1><a href="http://trjenifer.com/" target="_blank" rel="noreferrer">Student Memories</a></h1>
-          <p class="hero-identity">Souvenir notes and photos from students</p>
-          <p class="hero-summary">
-            A collection of special moments, notes, and photos shared by students.
-          </p>
+          <h1><a href="http://trjenifer.com/" target="_blank" rel="noreferrer" data-i18n="memories.title">Notes and memories from students and colleagues</a></h1>
+          <p class="hero-identity" data-i18n="memories.identity">A quiet collection of messages, moments, and photos from the journey.</p>
         </section>
       </div>
     </header>
@@ -60,12 +63,12 @@
         <div class="memory-grid" data-memory-grid></div>
 
         <article class="content-card memory-empty" data-memory-empty hidden>
-          <h3>No memories yet</h3>
-          <p>Memories will appear here soon.</p>
+          <h3 data-i18n="memories.empty_title">No memories yet</h3>
+          <p data-i18n="memories.empty_body">Memories will appear here soon.</p>
         </article>
 
         <div class="memory-lightbox" data-memory-lightbox hidden>
-          <button class="memory-lightbox-close" type="button" aria-label="Close image view" data-memory-close>
+          <button class="memory-lightbox-close" type="button" aria-label="Close image view" data-memory-close data-i18n="memories.close">
             Close
           </button>
           <div class="memory-lightbox-dialog">
@@ -76,8 +79,8 @@
       </section>
     </main>
 
-    <footer class="site-footer">
-       Made with ❤️ in Taipei · Jenifer Antony Padyachi © 2026
+    <footer class="site-footer" data-i18n="common.footer">
+      Made with love ❤️ in Taipei · Jenifer Antony Padyachi © 2026
     </footer>
   </div>
   <script src="script.js"></script>
